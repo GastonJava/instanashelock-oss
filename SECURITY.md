@@ -20,12 +20,9 @@ exist.
 
 ## Private reporting channel
 
-This local repository does not yet have a repository-specific private reporting
-channel. Before the repository becomes public, the maintainer must enable
-GitHub private vulnerability reporting under the repository's **Security**
-settings.
-
-Once enabled, use **Security → Report a vulnerability**. Do not disclose an
+GitHub private vulnerability reporting is enabled for this repository. Use
+**Security → Report a vulnerability** to submit exploitable details privately.
+Do not disclose an
 exploitable vulnerability in a public issue, discussion, pull request, commit
 message, or social-media post.
 
