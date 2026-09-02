@@ -24,8 +24,8 @@ No public release has been created from this repository.
 - [x] Pre-OSS history is clearly distinguished from public OSS history
 - [x] Tests, compilation, dependency audit, and secret scanning are scripted
 - [x] GitHub Actions workflow is configured without signing or repository secrets
-- [ ] Run the workflow on the future private GitHub remote
-- [ ] Complete a fresh-clone audit from that private remote
+- [x] Run the workflow on the private GitHub remote
+- [x] Complete a fresh-clone audit from that private remote
 
 ## Source release (`v1.0.0`) checks
 
