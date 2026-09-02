@@ -1,0 +1,13 @@
+--standalone
+--windows-console-mode=disable
+--python-flag=-m
+--low-memory
+--enable-plugin=tk-inter
+--windows-icon-from-ico=assets/app/instanashelock.ico
+--windows-company-name=Instanashelock
+--windows-product-name=Instanashelock
+--windows-file-version=1.0.0.0
+--windows-product-version=1.0.0.0
+--output-filename=instanashelock.exe
+--output-dir=dist
+

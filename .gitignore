@@ -1,0 +1,89 @@
+# Virtual environments
+.venv/
+venv/
+
+# Build artifacts
+dist/
+build/
+*.build/
+.nuitka-cache/
+
+# Test and Python caches
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# IDE / editor
+.cursor/
+.vscode/
+.idea/
+.vs/
+*.swp
+*.suo
+*.user
+*.userosscache
+
+# Secrets - never commit
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.secret
+*.pem
+*.key
+*.pfx
+*.p12
+*.jks
+*.keystore
+*.der
+
+# Vault data and user-generated backups
+*.vault
+*.vault.*
+*.instanashelock-backup
+*.instanashelock-backup.*
+
+# Local databases, logs, crash dumps, and temporary files
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.trace
+*.dmp
+*.dump
+core.*
+crash-*
+*.bak
+*.old
+*.tmp
+*.orig
+
+# Local notes, scratch files, and generated CI logs
+assets/temporal_images/
+codigo_fuente.md
+docs/ci_output_*.txt
+docs/criterio_tecnico_interno.md
+vault_v*.py
+
+# Generated release/install artifacts
+*.nuitka-crash-report.xml
+nuitka-crash-report.xml
+nuitka-*-report.xml
+*.exe
+*.msi
+*.msix
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600"
+     role="img" aria-labelledby="title description"
+     data-origin="instanashelock-project">
+  <title id="title">Abstract encrypted vault geometry</title>
+  <desc id="description">Original character-free vault-door illustration with an encryption grid.</desc>
+  <metadata>Original vector artwork created for the Instanashelock project; no third-party visual source.</metadata>
+  <defs>
+    <radialGradient id="door" cx="45%" cy="36%" r="68%">
+      <stop offset="0" stop-color="#27314A"/>
+      <stop offset="0.62" stop-color="#141A2B"/>
+      <stop offset="1" stop-color="#090C15"/>
+    </radialGradient>
+    <linearGradient id="edge" x1="250" y1="280" x2="980" y2="1320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#75E6D1"/>
+      <stop offset="0.48" stop-color="#7B8CFF"/>
+      <stop offset="1" stop-color="#A55EEA"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <line id="doorSpoke" x1="600" y1="430" x2="600" y2="550"/>
+  </defs>
+
+  <g opacity="0.34" stroke="#53617E" stroke-width="2">
+    <path d="M70 180h1060M70 300h1060M70 420h1060M70 540h1060M70 660h1060M70 780h1060M70 900h1060M70 1020h1060M70 1140h1060M70 1260h1060M70 1380h1060"/>
+    <path d="M120 110v1380M240 110v1380M360 110v1380M480 110v1380M600 110v1380M720 110v1380M840 110v1380M960 110v1380M1080 110v1380"/>
+  </g>
+  <g fill="#75E6D1" opacity="0.42">
+    <circle cx="120" cy="300" r="7"/><circle cx="360" cy="540" r="7"/>
+    <circle cx="960" cy="420" r="7"/><circle cx="1080" cy="900" r="7"/>
+    <circle cx="240" cy="1140" r="7"/><circle cx="840" cy="1380" r="7"/>
+  </g>
+
+  <circle cx="600" cy="860" r="440" fill="#0A0E18" opacity="0.72"/>
+  <circle cx="600" cy="860" r="390" fill="url(#door)" stroke="url(#edge)" stroke-width="18"/>
+  <circle cx="600" cy="860" r="315" fill="none" stroke="#47536F" stroke-width="8"/>
+  <g stroke="#7B8CFF" stroke-width="24" stroke-linecap="round" opacity="0.78">
+    <use href="#doorSpoke"/>
+    <use href="#doorSpoke" transform="rotate(45 600 860)"/>
+    <use href="#doorSpoke" transform="rotate(90 600 860)"/>
+    <use href="#doorSpoke" transform="rotate(135 600 860)"/>
+    <use href="#doorSpoke" transform="rotate(180 600 860)"/>
+    <use href="#doorSpoke" transform="rotate(225 600 860)"/>
+    <use href="#doorSpoke" transform="rotate(270 600 860)"/>
+    <use href="#doorSpoke" transform="rotate(315 600 860)"/>
+  </g>
+  <circle cx="600" cy="860" r="205" fill="#11182A" stroke="#75E6D1" stroke-width="9"/>
+  <g filter="url(#glow)">
+    <path d="M520 850v-38c0-61 33-105 80-105s80 44 80 105v38"
+          fill="none" stroke="#C8E5FF" stroke-width="26" stroke-linecap="round"/>
+    <rect x="490" y="830" width="220" height="190" rx="42" fill="url(#edge)"/>
+    <circle cx="600" cy="905" r="24" fill="#090C15"/>
+    <path d="M586 924h28l13 52h-54z" fill="#090C15"/>
+  </g>
+</svg>

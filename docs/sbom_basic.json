@@ -1,0 +1,395 @@
+{
+  "build_requirements": [
+    {
+      "license": "Apache-2.0 OR BSD-3-Clause",
+      "normalized_name": "cryptography",
+      "requirement": "cryptography>=43.0",
+      "resolved_version": "50.0.1",
+      "summary": "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
+    },
+    {
+      "license": "MIT",
+      "normalized_name": "argon2-cffi",
+      "requirement": "argon2-cffi>=23.1",
+      "resolved_version": "25.1.0",
+      "summary": "Argon2 for Python"
+    },
+    {
+      "license": "BSD",
+      "normalized_name": "pyperclip",
+      "requirement": "pyperclip>=1.9",
+      "resolved_version": "1.11.0",
+      "summary": "A cross-platform clipboard module for Python. (Only handles plain text for now.)"
+    },
+    {
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "normalized_name": "pyside6",
+      "requirement": "PySide6>=6.8",
+      "resolved_version": "6.11.2",
+      "summary": "Python bindings for the Qt cross-platform application and UI framework"
+    },
+    {
+      "license": "GNU Affero General Public License v3",
+      "normalized_name": "nuitka",
+      "requirement": "nuitka>=2.1",
+      "resolved_version": "4.2",
+      "summary": "Python compiler with full language support and CPython compatibility"
+    },
+    {
+      "license": "(not declared in package metadata)",
+      "normalized_name": "ordered-set",
+      "requirement": "ordered-set>=4.1",
+      "resolved_version": "4.1.0",
+      "summary": "An OrderedSet is a custom MutableSet that remembers its order, so that every"
+    }
+  ],
+  "development_requirements": [
+    {
+      "license": "Apache-2.0 OR BSD-3-Clause",
+      "normalized_name": "cryptography",
+      "requirement": "cryptography>=43.0",
+      "resolved_version": "50.0.1",
+      "summary": "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
+    },
+    {
+      "license": "MIT",
+      "normalized_name": "argon2-cffi",
+      "requirement": "argon2-cffi>=23.1",
+      "resolved_version": "25.1.0",
+      "summary": "Argon2 for Python"
+    },
+    {
+      "license": "BSD",
+      "normalized_name": "pyperclip",
+      "requirement": "pyperclip>=1.9",
+      "resolved_version": "1.11.0",
+      "summary": "A cross-platform clipboard module for Python. (Only handles plain text for now.)"
+    },
+    {
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "normalized_name": "pyside6",
+      "requirement": "PySide6>=6.8",
+      "resolved_version": "6.11.2",
+      "summary": "Python bindings for the Qt cross-platform application and UI framework"
+    },
+    {
+      "license": "MIT",
+      "normalized_name": "pytest",
+      "requirement": "pytest>=8.0",
+      "resolved_version": "9.1.1",
+      "summary": "pytest: simple powerful testing with Python"
+    }
+  ],
+  "findings": [
+    "Todas las dependencias runtime declaradas estan presentes en el venv local.",
+    "Las dependencias runtime usan minimos (`>=`) y no estan pinneadas; el entorno no es totalmente reproducible todavia.",
+    "Este archivo es un inventario del entorno que lo genero. La verificacion de advisories se ejecuta por separado con `python -m pip_audit -r requirements\\audit.txt`.",
+    "Las licencias se leen de `License-Expression` o `License` en los metadatos instalados. Un campo vacio requiere consultar la distribucion upstream.",
+    "La licencia MIT de Instanashelock no relicencia dependencias ni herramientas de build; consulte `THIRD_PARTY_NOTICES.md`."
+  ],
+  "format": "instanashelock-basic-sbom",
+  "installed_packages": [
+    {
+      "license": "MIT",
+      "name": "argon2-cffi",
+      "summary": "Argon2 for Python",
+      "version": "25.1.0"
+    },
+    {
+      "license": "MIT",
+      "name": "argon2-cffi-bindings",
+      "summary": "Low-level CFFI bindings for Argon2",
+      "version": "26.1.0"
+    },
+    {
+      "license": "BSD-2-Clause",
+      "name": "boolean.py",
+      "summary": "Define boolean algebras, create and parse boolean expressions and create custom boolean DSL.",
+      "version": "5.0"
+    },
+    {
+      "license": "Apache-2.0",
+      "name": "CacheControl",
+      "summary": "httplib2 caching for requests",
+      "version": "0.14.4"
+    },
+    {
+      "license": "MPL-2.0",
+      "name": "certifi",
+      "summary": "Python package for providing Mozilla's CA Bundle.",
+      "version": "2026.7.22"
+    },
+    {
+      "license": "MIT-0",
+      "name": "cffi",
+      "summary": "Foreign Function Interface for Python calling C code.",
+      "version": "2.1.1"
+    },
+    {
+      "license": "MIT",
+      "name": "charset-normalizer",
+      "summary": "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet.",
+      "version": "3.5.1"
+    },
+    {
+      "license": "",
+      "name": "colorama",
+      "summary": "Cross-platform colored terminal text.",
+      "version": "0.4.6"
+    },
+    {
+      "license": "Apache-2.0 OR BSD-3-Clause",
+      "name": "cryptography",
+      "summary": "cryptography is a package which provides cryptographic recipes and primitives to Python developers.",
+      "version": "50.0.1"
+    },
+    {
+      "license": "Apache-2.0",
+      "name": "cyclonedx-python-lib",
+      "summary": "Python library for CycloneDX",
+      "version": "11.12.0"
+    },
+    {
+      "license": "PSFL",
+      "name": "defusedxml",
+      "summary": "XML bomb protection for Python stdlib modules",
+      "version": "0.7.1"
+    },
+    {
+      "license": "MIT",
+      "name": "filelock",
+      "summary": "A platform independent file lock.",
+      "version": "3.32.5"
+    },
+    {
+      "license": "BSD-3-Clause",
+      "name": "idna",
+      "summary": "Internationalized Domain Names in Applications (IDNA)",
+      "version": "3.19"
+    },
+    {
+      "license": "MIT",
+      "name": "iniconfig",
+      "summary": "brain-dead simple config-ini parsing",
+      "version": "2.3.0"
+    },
+    {
+      "license": "Apache-2.0",
+      "name": "license-expression",
+      "summary": "license-expression is a comprehensive utility library to parse, compare, simplify and normalize license expressions (such as SPDX license expressions) using boolean logic.",
+      "version": "30.4.4"
+    },
+    {
+      "license": "",
+      "name": "markdown-it-py",
+      "summary": "Python port of markdown-it. Markdown parsing, done right!",
+      "version": "4.2.0"
+    },
+    {
+      "license": "",
+      "name": "mdurl",
+      "summary": "Markdown URL utilities",
+      "version": "0.1.2"
+    },
+    {
+      "license": "Apache-2.0",
+      "name": "msgpack",
+      "summary": "MessagePack serializer",
+      "version": "1.2.2"
+    },
+    {
+      "license": "GNU Affero General Public License v3",
+      "name": "Nuitka",
+      "summary": "Python compiler with full language support and CPython compatibility",
+      "version": "4.2"
+    },
+    {
+      "license": "",
+      "name": "ordered-set",
+      "summary": "An OrderedSet is a custom MutableSet that remembers its order, so that every",
+      "version": "4.1.0"
+    },
+    {
+      "license": "MIT",
+      "name": "packageurl-python",
+      "summary": "A purl aka. Package URL parser and builder",
+      "version": "0.17.6"
+    },
+    {
+      "license": "Apache-2.0 OR BSD-2-Clause",
+      "name": "packaging",
+      "summary": "Core utilities for Python packages",
+      "version": "26.3"
+    },
+    {
+      "license": "MIT",
+      "name": "pip",
+      "summary": "The PyPA recommended tool for installing Python packages.",
+      "version": "26.2.1"
+    },
+    {
+      "license": "",
+      "name": "pip-api",
+      "summary": "An unofficial, importable pip API",
+      "version": "0.0.34"
+    },
+    {
+      "license": "",
+      "name": "pip_audit",
+      "summary": "A tool for scanning Python environments for known vulnerabilities",
+      "version": "2.10.1"
+    },
+    {
+      "license": "MIT",
+      "name": "pip-requirements-parser",
+      "summary": "pip requirements parser - a mostly correct pip requirements parsing library because it uses pip's own code.",
+      "version": "32.0.1"
+    },
+    {
+      "license": "MIT",
+      "name": "platformdirs",
+      "summary": "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`.",
+      "version": "4.11.7"
+    },
+    {
+      "license": "MIT",
+      "name": "pluggy",
+      "summary": "plugin and hook calling mechanisms for python",
+      "version": "1.6.0"
+    },
+    {
+      "license": "Apache-2.0",
+      "name": "py-serializable",
+      "summary": "Library for serializing and deserializing Python Objects to and from JSON and XML.",
+      "version": "2.1.0"
+    },
+    {
+      "license": "BSD-3-Clause",
+      "name": "pycparser",
+      "summary": "C parser in Python",
+      "version": "3.0"
+    },
+    {
+      "license": "BSD-2-Clause",
+      "name": "Pygments",
+      "summary": "Pygments is a syntax highlighting package written in Python.",
+      "version": "2.21.0"
+    },
+    {
+      "license": "MIT",
+      "name": "pyparsing",
+      "summary": "pyparsing - Classes and methods to define and execute parsing grammars",
+      "version": "3.3.2"
+    },
+    {
+      "license": "BSD",
+      "name": "pyperclip",
+      "summary": "A cross-platform clipboard module for Python. (Only handles plain text for now.)",
+      "version": "1.11.0"
+    },
+    {
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "name": "PySide6",
+      "summary": "Python bindings for the Qt cross-platform application and UI framework",
+      "version": "6.11.2"
+    },
+    {
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "name": "PySide6_Addons",
+      "summary": "Python bindings for the Qt cross-platform application and UI framework (Addons)",
+      "version": "6.11.2"
+    },
+    {
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "name": "PySide6_Essentials",
+      "summary": "Python bindings for the Qt cross-platform application and UI framework (Essentials)",
+      "version": "6.11.2"
+    },
+    {
+      "license": "MIT",
+      "name": "pytest",
+      "summary": "pytest: simple powerful testing with Python",
+      "version": "9.1.1"
+    },
+    {
+      "license": "Apache-2.0",
+      "name": "requests",
+      "summary": "Python HTTP for Humans.",
+      "version": "2.34.2"
+    },
+    {
+      "license": "MIT",
+      "name": "rich",
+      "summary": "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal",
+      "version": "15.0.0"
+    },
+    {
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "name": "shiboken6",
+      "summary": "Python/C++ bindings helper module",
+      "version": "6.11.2"
+    },
+    {
+      "license": "Apache 2.0",
+      "name": "sortedcontainers",
+      "summary": "Sorted Containers -- Sorted List, Sorted Dict, Sorted Set",
+      "version": "2.4.0"
+    },
+    {
+      "license": "MIT",
+      "name": "tomli",
+      "summary": "A lil' TOML parser",
+      "version": "2.4.1"
+    },
+    {
+      "license": "",
+      "name": "tomli_w",
+      "summary": "A lil' TOML writer",
+      "version": "1.2.0"
+    },
+    {
+      "license": "PSF-2.0",
+      "name": "typing_extensions",
+      "summary": "Backported and Experimental Type Hints for Python 3.9+",
+      "version": "4.16.0"
+    },
+    {
+      "license": "MIT",
+      "name": "urllib3",
+      "summary": "HTTP library with thread-safe connection pooling, file post, and more.",
+      "version": "2.7.0"
+    }
+  ],
+  "python_version": "3.12.13",
+  "regenerate_with": ".\\scripts\\audit.ps1",
+  "runtime_requirements": [
+    {
+      "license": "Apache-2.0 OR BSD-3-Clause",
+      "normalized_name": "cryptography",
+      "requirement": "cryptography>=43.0",
+      "resolved_version": "50.0.1",
+      "summary": "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
+    },
+    {
+      "license": "MIT",
+      "normalized_name": "argon2-cffi",
+      "requirement": "argon2-cffi>=23.1",
+      "resolved_version": "25.1.0",
+      "summary": "Argon2 for Python"
+    },
+    {
+      "license": "BSD",
+      "normalized_name": "pyperclip",
+      "requirement": "pyperclip>=1.9",
+      "resolved_version": "1.11.0",
+      "summary": "A cross-platform clipboard module for Python. (Only handles plain text for now.)"
+    },
+    {
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "normalized_name": "pyside6",
+      "requirement": "PySide6>=6.8",
+      "resolved_version": "6.11.2",
+      "summary": "Python bindings for the Qt cross-platform application and UI framework"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+title = "Instanashelock secret scanning"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "instanashelock-hardcoded-password"
+description = "Potential hard-coded password assignment"
+regex = '''(?i)(?:password|passwd|pwd)\s*(?:=|:)\s*["']([^"'\r\n]{8,})["']'''
+secretGroup = 1
+keywords = ["password", "passwd", "pwd"]
+
+    [[rules.allowlists]]
+    description = "Explicitly synthetic test placeholders"
+    condition = "OR"
+    regexTarget = "secret"
+    regexes = [
+        '''(?i)(?:example|test|sample|dummy|fake|placeholder|do.?not.?use)''',
+    ]
+
+[[rules]]
+id = "instanashelock-smoke-password-literal"
+description = "Smoke-test master password literal in documentation"
+regex = '''(?i)`([a-z0-9!@#$%^&*+\-]{0,64}(?:smoke[a-z0-9!@#$%^&*+\-]{0,32}master|master[a-z0-9!@#$%^&*+\-]{0,32}smoke)[a-z0-9!@#$%^&*+\-]{0,64})`'''
+secretGroup = 1
+
+[[allowlists]]
+description = "Local dependencies, caches, and generated artifacts"
+paths = [
+    '''(^|/)\.git(?:/|$)''',
+    '''(^|/)\.venv(?:/|$)''',
+    '''(^|/)venv(?:/|$)''',
+    '''(^|/)__pycache__(?:/|$)''',
+    '''(^|/)\.pytest_cache(?:/|$)''',
+    '''(^|/)\.mypy_cache(?:/|$)''',
+    '''(^|/)\.ruff_cache(?:/|$)''',
+    '''(^|/)\.nuitka-cache(?:/|$)''',
+    '''(^|/)dist(?:/|$)''',
+    '''(^|/)build(?:/|$)''',
+]

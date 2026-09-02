@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+     role="img" aria-labelledby="title description"
+     data-origin="instanashelock-project">
+  <title id="title">Help icon</title>
+  <desc id="description">Original geometric question-mark icon.</desc>
+  <metadata>Original vector artwork created for the Instanashelock project; no third-party visual source.</metadata>
+  <circle cx="128" cy="128" r="104" fill="#151A2A" stroke="#75E6D1" stroke-width="12"/>
+  <path d="M87 94c5-31 29-50 62-50 35 0 60 21 60 52 0 27-16 40-37 52-18 10-27 18-27 38"
+        fill="none" stroke="#DCEBFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="136" cy="215" r="12" fill="#A55EEA"/>
+</svg>

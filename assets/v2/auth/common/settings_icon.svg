@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+     role="img" aria-labelledby="title description"
+     data-origin="instanashelock-project">
+  <title id="title">Settings icon</title>
+  <desc id="description">Original geometric settings wheel.</desc>
+  <metadata>Original vector artwork created for the Instanashelock project; no third-party visual source.</metadata>
+  <defs>
+    <linearGradient id="gearFill" x1="42" y1="34" x2="218" y2="226" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#75E6D1"/>
+      <stop offset="1" stop-color="#8C63E8"/>
+    </linearGradient>
+    <rect id="tooth" x="113" y="12" width="30" height="52" rx="10"/>
+  </defs>
+  <g fill="url(#gearFill)">
+    <use href="#tooth"/>
+    <use href="#tooth" transform="rotate(45 128 128)"/>
+    <use href="#tooth" transform="rotate(90 128 128)"/>
+    <use href="#tooth" transform="rotate(135 128 128)"/>
+    <use href="#tooth" transform="rotate(180 128 128)"/>
+    <use href="#tooth" transform="rotate(225 128 128)"/>
+    <use href="#tooth" transform="rotate(270 128 128)"/>
+    <use href="#tooth" transform="rotate(315 128 128)"/>
+    <circle cx="128" cy="128" r="78"/>
+  </g>
+  <circle cx="128" cy="128" r="42" fill="#11182A" stroke="#DCEBFF" stroke-width="8"/>
+</svg>

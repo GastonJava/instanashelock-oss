@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+     role="img" aria-labelledby="title description"
+     data-origin="instanashelock-project">
+  <title id="title">Instanashelock abstract vault and lock mark</title>
+  <desc id="description">Original geometric artwork made from circles, spokes, and a lock.</desc>
+  <metadata>Original vector artwork created for the Instanashelock project; no third-party visual source.</metadata>
+  <defs>
+    <linearGradient id="background" x1="64" y1="40" x2="448" y2="472" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#151A2A"/>
+      <stop offset="1" stop-color="#070A12"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="176" y1="206" x2="342" y2="414" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#75E6D1"/>
+      <stop offset="0.55" stop-color="#7B8CFF"/>
+      <stop offset="1" stop-color="#A55EEA"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <line id="spoke" x1="256" y1="72" x2="256" y2="110"/>
+  </defs>
+
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#background)"/>
+  <circle cx="256" cy="256" r="190" fill="#0B1020" stroke="#29324B" stroke-width="10"/>
+  <circle cx="256" cy="256" r="154" fill="none" stroke="#53617E" stroke-width="4" opacity="0.72"/>
+  <g stroke="#75E6D1" stroke-width="12" stroke-linecap="round" opacity="0.78">
+    <use href="#spoke"/>
+    <use href="#spoke" transform="rotate(45 256 256)"/>
+    <use href="#spoke" transform="rotate(90 256 256)"/>
+    <use href="#spoke" transform="rotate(135 256 256)"/>
+    <use href="#spoke" transform="rotate(180 256 256)"/>
+    <use href="#spoke" transform="rotate(225 256 256)"/>
+    <use href="#spoke" transform="rotate(270 256 256)"/>
+    <use href="#spoke" transform="rotate(315 256 256)"/>
+  </g>
+  <circle cx="256" cy="256" r="118" fill="#11182A" stroke="#7B8CFF" stroke-width="5" opacity="0.98"/>
+
+  <g filter="url(#softGlow)">
+    <path d="M190 250v-32c0-45 27-78 66-78s66 33 66 78v32"
+          fill="none" stroke="#BBD7FF" stroke-width="22" stroke-linecap="round"/>
+    <rect x="164" y="232" width="184" height="150" rx="34"
+          fill="url(#accent)" stroke="#DCEBFF" stroke-width="6"/>
+    <circle cx="256" cy="294" r="20" fill="#0A0E18"/>
+    <path d="M244 307h24l10 42h-44z" fill="#0A0E18"/>
+  </g>
+</svg>

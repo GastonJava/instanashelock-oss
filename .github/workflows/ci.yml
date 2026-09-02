@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Windows / Python 3.12
+    runs-on: windows-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Check out complete history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements/*.txt
+
+      - name: Install audit environment
+        shell: pwsh
+        run: |
+          python -m venv .venv
+          .\.venv\Scripts\python.exe -m pip install --upgrade pip
+          .\.venv\Scripts\python.exe -m pip install -r requirements\audit.txt
+
+      - name: Run project validation
+        shell: pwsh
+        run: .\scripts\ci.ps1
+
+      - name: Install and verify Gitleaks
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $version = "8.30.1"
+          $archiveName = "gitleaks_8.30.1_windows_x64.zip"
+          $expectedSha256 = "D29144DEFF3A68AA93CED33DDDF84B7FDC26070ADD4AA0F4513094C8332AFC4E"
+          $toolRoot = Join-Path $env:RUNNER_TEMP "gitleaks-$version"
+          New-Item -ItemType Directory -Path $toolRoot | Out-Null
+          $archive = Join-Path $toolRoot $archiveName
+          $url = "https://github.com/gitleaks/gitleaks/releases/download/v$version/$archiveName"
+          Invoke-WebRequest -Uri $url -OutFile $archive
+          $actualSha256 = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash
+          if ($actualSha256 -ne $expectedSha256) {
+              throw "Gitleaks archive checksum mismatch."
+          }
+          Expand-Archive -LiteralPath $archive -DestinationPath $toolRoot
+          "GITLEAKS_PATH=$(Join-Path $toolRoot 'gitleaks.exe')" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Scan current tree and complete history
+        shell: pwsh
+        run: .\scripts\security_scan.ps1 -GitleaksPath $env:GITLEAKS_PATH
