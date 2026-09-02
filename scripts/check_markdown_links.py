@@ -37,13 +37,15 @@ def link_target(raw_target: str) -> str:
 
 def main() -> int:
     tracked = tracked_files()
-    markdown_files = sorted(ROOT.rglob("*.md"))
+    markdown_files = sorted(
+        ROOT / relative
+        for relative in tracked
+        if pathlib.PurePosixPath(relative).suffix.lower() == ".md"
+    )
     failures: list[str] = []
     checked = 0
 
     for markdown in markdown_files:
-        if ".git" in markdown.parts:
-            continue
         text = markdown.read_text(encoding="utf-8")
         for match in LINK_RE.finditer(text):
             target = link_target(match.group(1))
