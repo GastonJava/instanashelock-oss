@@ -50,9 +50,19 @@ Rules:
 - no QML imports
 - return typed outcomes, not widgets or toolkit-specific dialogs
 
-First extracted service:
+Current extracted service:
 
 - `unlock_service`
+
+The Tkinter v1 unlock window currently consumes this service. The v2
+controller does **not** yet import it: v2 currently has parallel unlock and
+create-vault orchestration in
+`vault_app_v2.services.auth_service`. Both implementations call the same
+established core storage, crypto, header, recovery, and rate-limit helpers.
+
+This distinction is important: the security-sensitive primitives are shared,
+but all higher-level authentication orchestration has not yet been
+consolidated.
 
 ### `v2`
 
@@ -62,7 +72,8 @@ Rules:
 
 - `vault_app_v2.*` is `v2`-only
 - uses `PySide6 + Qt Quick / QML`
-- may import shared core modules and `vault_app.services.*`
+- imports shared core modules directly
+- may consume `vault_app.services.*` after behavior is consolidated
 - must never import `vault_app.ui.*`
 
 ## Import Rules
@@ -81,41 +92,36 @@ Not allowed:
 
 The dependency direction should always point inward toward shared logic, never sideways between UI stacks.
 
-## Unlock Service Contract
+## Current Authentication Service Boundary
 
-`vault_app.services.unlock_service.UnlockService`
+v1 uses `vault_app.services.unlock_service.UnlockService` for password unlock.
+v2 currently uses the services in `vault_app_v2.services.auth_service`:
 
-Responsibilities:
+- `UnlockService` performs real vault detection, parsing, rate limiting, and
+  password unlock through the shared core;
+- `CreateVaultService` creates a real v3 vault and can enable recovery-code
+  generation through shared storage/recovery operations.
 
-- detect whether a vault exists
-- parse the vault container safely
-- attempt password unlock
-- own rate-limit / cooldown state for the existing-vault unlock path
-- return typed results for:
-  - `VaultReady`
-  - `MissingVault`
-  - `CorruptVault`
-  - `UnlockWrongPassword`
-  - `LockedOut`
-  - `UnlockSuccess`
+The two unlock services currently overlap. Consolidating that orchestration is
+a maintainability improvement, not a cryptographic migration.
 
-Non-goals for this first slice:
+Not yet connected in v2:
 
-- create-vault orchestration
-- recovery-code orchestration
-- local reset orchestration
-- backup restore orchestration
-- Windows Hello
+- recovery-code unlock;
+- encrypted-backup restore;
+- destructive local reset;
+- post-unlock entry persistence and conflict handling;
+- Windows Hello.
 
 ## V2 Controller Pattern
 
-`QML -> QObject controller -> service layer -> shared core`
+`QML -> QObject controller -> v2 auth service -> shared core`
 
 For the first slice:
 
 - QML screen: `UnlockScreen.qml`
 - controller: `UnlockController`
-- service: `UnlockService`
+- services: v2 `UnlockService` and `CreateVaultService`
 
 Controller rules:
 
@@ -128,17 +134,35 @@ Controller rules:
 
 The root `v2` window uses `ApplicationWindow + StackView` from day one.
 
-First routes:
+Current routes:
 
 - `unlock`
 - `forgot`
-- `missing`
+- `create`
+- `recoveryCodes`
+- `recoveryUnlock`
 - `corrupt`
 - `unlocked`
 
-Only `unlock` is connected to real backend behavior in this slice.
+Password unlock and vault creation are connected to real backend behavior.
+Recovery-code display after creation is also real. The recovery-unlock screen
+is visual only, the backup/reset choices announce future backend work, the
+corrupt-vault route is a placeholder, and `unlocked` resolves to
+`UnlockedPlaceholderScreen.qml` rather than the main vault application.
 
-The others are honest placeholders so adjacent states can be tested without pretending the full auth system already exists.
+## Current Implementation Status
+
+| Area | Status | Evidence |
+| --- | --- | --- |
+| QML bootstrap, theme, and reusable controls | Done | `app.py`, `App.qml`, `qml/components/`, `qml/theme/` |
+| Password unlock | Done for the current slice | `UnlockController.submitPassword`, v2 `UnlockService` |
+| Create vault | Done for the current slice | `UnlockController.createVault`, `CreateVaultService` |
+| Recovery-code generation during creation | Done | `CreateVaultService`, `RecoveryCodesScreen.qml` |
+| Recovery-code unlock | In progress | Screen exists; action states that backend is pending |
+| Backup restore and local reset | Planned | Options exist in `ForgotPasswordScreen.qml`; backend is pending |
+| Corrupt-vault recovery | Planned | `CorruptVaultPlaceholderScreen.qml` |
+| Main post-unlock vault UI | Next major slice | `UnlockedPlaceholderScreen.qml` |
+| Entry list/search/CRUD and conflict-safe save | Planned | Not present in `vault_app_v2` |
 
 ## Runner Separation
 

@@ -11,6 +11,10 @@ records, not claims of public releases.
 - Prepared the clean open-source source snapshot.
 - Added public licensing, security, maintenance, and contribution policies.
 - Added reproducible local validation and GitHub Actions configuration.
+- Documented the repository as a dual-track project: stable Tkinter v1 and
+  actively developed PySide6/QML v2.
+- Kept v2 explicitly at `2.0.0a0`; it is not presented as production-ready or
+  as a replacement for v1.
 
 No public tag or GitHub release exists yet.
 

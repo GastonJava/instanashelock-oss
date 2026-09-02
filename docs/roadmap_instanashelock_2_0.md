@@ -49,6 +49,47 @@ Es tener:
 - mismas operaciones criticas funcionando
 - cero humo
 
+## Estado verificado del snapshot OSS actual
+
+### DONE
+
+- paquete `vault_app_v2` separado de la UI Tkinter de `v1`
+- bootstrap PySide6/QML, tema y componentes visuales reutilizables
+- navegacion del flujo de autenticacion mediante `StackView`
+- unlock por password conectado al vault real
+- creacion real de vault nuevo
+- generacion opcional y presentacion de recovery codes al crear el vault
+- reutilizacion directa del core de crypto, storage, headers, recovery y
+  rate limiting de `vault_app`
+- tests de servicios, controller y carga QML
+
+### IN PROGRESS
+
+- el flujo visual de recovery existe, pero recovery-code unlock aun no llama a
+  un backend real
+- restore de backup y reset local aparecen como opciones, pero anuncian el
+  trabajo pendiente
+- los estados de vault corrupto y sesion desbloqueada todavia usan pantallas
+  placeholder
+- la orquestacion de unlock esta duplicada entre el servicio usado por `v1` y
+  el servicio de auth de `v2`, aunque ambos consumen el mismo core
+
+### NEXT
+
+Reemplazar `UnlockedPlaceholderScreen.qml` por un primer vertical slice de la
+shell autenticada: layout multipanel, listado de entries reales, seleccion,
+busqueda y CRUD basico persistido mediante el storage compartido, incluyendo
+fingerprint para no perder la proteccion contra escrituras desactualizadas.
+
+No deben entrar tipos de item nuevos en este hito.
+
+### FUTURE
+
+- cerrar recovery unlock, restore y reset con backend real
+- alcanzar paridad completa de autolock, clipboard y estados criticos
+- agregar tipos de item y navegacion mas rica de forma incremental
+- reevaluar storage o nube solo si necesidades reales posteriores lo justifican
+
 ## Decisiones de producto ya tomadas
 
 ### 1. `v1` y `v2` viven separadas

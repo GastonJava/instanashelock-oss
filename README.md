@@ -8,12 +8,33 @@ The application is intended for local vault storage. It does not provide cloud
 sync, browser autofill, account recovery by a service operator, or protection
 from a compromised operating system.
 
-## Status
+## Project status
 
-- **v1** is the current stable local application, implemented with Tkinter.
-- **v2** is an ongoing PySide6/QML rework. It reuses the existing vault core but
-  is not yet a replacement for v1.
-- No public versioned release has been published from this repository yet.
+### v1 — Stable
+
+The stable local application is implemented with Tkinter and reports version
+`1.0.0`. Its interface is intentionally simple, while its encrypted vault,
+recovery, backup, migration, clipboard, auto-lock, and multi-instance flows are
+the mature product line in this repository.
+
+Version `1.0.0` was reached as a private/local engineering milestone before the
+open-source repository existed. It was not a historical public release, and no
+public `v1.0.0` tag or GitHub release exists yet. Stable also does not mean that
+the application has received an independent professional security audit.
+
+### v2 — In active development
+
+The next-generation application reports version `2.0.0a0` and uses PySide6,
+Qt Quick, and QML. It is an architectural and product evolution, not only a
+visual reskin: the UI is componentized and separated from the established
+vault core.
+
+The current v2 slice can launch, inspect or unlock a real local vault, and
+create a new vault with optional recovery-code generation. Recovery-code
+unlock, backup restore, destructive reset, and the main post-unlock vault UI
+remain incomplete. v2 is therefore not yet a replacement for v1.
+
+No public versioned release has been published from this repository yet.
 
 This open-source repository begins with a clean source snapshot prepared from
 earlier private development. That private engineering history predates this Git
@@ -73,17 +94,29 @@ real vaults, credentials, recovery codes, or other secrets in an issue or test.
 ## Architecture
 
 ```text
-src/vault_app/         Shared vault core and stable Tkinter v1 application
-  services/            UI-independent application orchestration
-  ui/                  Tkinter windows and dialogs
+src/vault_app/         Stable Tkinter v1 application and established vault core
+  crypto.py            Shared cryptographic primitives
+  storage.py           Shared vault persistence, backup, and migration logic
+  header.py            Shared authenticated vault format handling
+  recovery.py          Shared recovery primitives
+  security.py          Shared rate-limit and clipboard helpers
+  services/            UI-independent orchestration currently used by v1
+  ui/                  Tkinter-only windows and dialogs
 src/vault_app_v2/      PySide6/QML v2 work in progress
   controllers/         Python/QML bridges
+  services/            Current v2 authentication orchestration
   qml/                 Theme, components, and authentication screens
 tests/                 pytest suite
 scripts/               Development, validation, audit, and build helpers
 packaging/             Nuitka and Inno Setup configuration
 assets/                Project-owned source artwork and generated derivatives
 ```
+
+v2 imports the established crypto, storage, header, recovery, and security
+modules directly. Its current authentication service still contains some
+v2-specific orchestration that has not yet been consolidated with the v1
+service layer; the shared security-sensitive primitives themselves are not
+being rewritten in QML.
 
 The v2 architecture is described in
 [`docs/v2_architecture.md`](docs/v2_architecture.md).
